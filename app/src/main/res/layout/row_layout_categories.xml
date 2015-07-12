@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_element_list">
+
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_list_element_grey"
+        android:padding="10dp"
+        android:layout_margin="5dp">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/image_view_category"
+            style="@style/list_item_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/text_view_category_title"
+            style="@style/list_item_title"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/image_view_category"
+            android:paddingLeft="8dp"
+            android:text="Category title text" />
+
+        <TextView
+            android:id="@+id/text_view_category_desc"
+            style="@style/list_item_description"
+            android:layout_alignBottom="@+id/image_view_category"
+            android:layout_toRightOf="@+id/image_view_category"
+            android:paddingLeft="8dp"
+            android:text="Category description text" />
+    </RelativeLayout>
+</RelativeLayout>

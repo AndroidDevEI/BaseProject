@@ -1,0 +1,116 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+<RelativeLayout  android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp"
+    tools:context="flatrocktechnology.com.databasenetworking.app.EventsActivity$PlaceholderFragment">
+
+    <RelativeLayout
+        android:id="@+id/image_box"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/image_view_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/tv_event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Place Name"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/buttons_container"
+        android:layout_below="@+id/image_box"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+
+            android:text = "Join"
+            android:textColor="@color/white"
+            android:background="@drawable/selector_button_grey"
+            android:layout_weight="1"
+
+            android:layout_marginRight="1dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:background="@drawable/selector_button_grey"
+            android:layout_marginLeft="1dp"
+            android:text="Will go"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+     <TableLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:layout_below="@+id/buttons_container"
+        android:layout_width="match_parent"
+        android:stretchColumns="*"
+        android:background="@color/primary_dark"
+        android:layout_height="match_parent">
+        <TableRow style="@style/single_item_table_row" android:gravity="center">
+            <TextView android:id="@+id/tv_evet_title"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text = "Title"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        </TableRow>
+        <TableRow style="@style/double_item_table_row">
+            <TextView
+                style="@style/table_row_item_label"
+                android:text = "@string/label_time"/>
+            <TextView
+                android:id="@+id/tv_event_time"
+                style="@style/table_row_item_value"
+                android:text = "22:00"/>
+        </TableRow>
+        <TableRow style="@style/single_item_table_row">
+            <TextView
+                android:id="@+id/tv_event_desc"
+                style="@style/small_text"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:text="Some simple basic long text to be displayed while i write the code for this program and so on."/>
+        </TableRow>
+        <TableRow style="@style/single_item_table_row">
+            <TextView
+                android:id="@+id/tv_event_desc_place"
+                style="@style/table_row_item_label"
+                android:layout_weight="1"
+                android:text="@string/label_desc_place"/>
+        </TableRow>
+        <TableRow style="@style/single_item_table_row">
+            <TextView
+                android:id="@+id/tv_place_desc"
+                style="@style/small_text"
+                android:layout_weight="1"
+                android:singleLine="false"
+                android:text="Some simple basic long text to be displayed while i write the code for this program and so on."/>
+
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>
+</ScrollView>

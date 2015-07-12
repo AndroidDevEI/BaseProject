@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">DatabaseNetworking</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_networking">Categories</string>
+
+    <!-- Labels -->
+    <string name="label_time"><b>Time:</b></string>
+    <string name="label_description"></string>
+    <string name="label_desc_place"><b>About the place:</b></string>
+
+    <!-- Buttons -->
+    <string name="btn_networking">Networking example</string>
+    <string name="btn_database">Database example</string>
+
+    <!-- TEXT -->
+    <string name="text_notification_title">You have new notification</string>
+    <string name="text_notification_body">Something to be notified for.</string>
+    <string name="title_activity_events">Events</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_base">BaseActivity</string>
+
+</resources>
