@@ -18,7 +18,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
-
         try {
             // Initialize singletons
             VolleySingleton.init(this);
@@ -27,7 +26,6 @@ public class MyApplication extends Application {
             e.printStackTrace();
         }
         this.setAppContext(getApplicationContext());
-
     }
 
     public static MyApplication getInstance(){

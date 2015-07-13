@@ -1,6 +1,6 @@
 package flatrocktechnology.com.databasenetworking.app;
 
-import android.app.ActionBar;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -38,7 +37,7 @@ import java.util.Map;
 
 import flatrocktechnology.com.databasenetworking.R;
 import flatrocktechnology.com.databasenetworking.app.adapters.AdapterCategories;
-import flatrocktechnology.com.databasenetworking.bll.Bll_Category;
+
 import flatrocktechnology.com.databasenetworking.models.Category;
 import flatrocktechnology.com.databasenetworking.models.CategoryItem;
 import flatrocktechnology.com.databasenetworking.utils.Const;
@@ -60,20 +59,22 @@ public class CategoriesActivity extends AppCompatActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_networking);
-        registerViews();
-        //Request the desired data
+        initializeViews();
+
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
 
         requestNetworkData();
 
     }
 
-    private void registerViews(){
-
+    /**
+     * Initialize the layout views
+     */
+    private void initializeViews(){
       //  mListView = (ListView) findViewById(R.id.list_view_categories);
        // mListView.setOnItemClickListener(this);
-
     }
 
     /**
@@ -126,7 +127,10 @@ public class CategoriesActivity extends AppCompatActivity implements AdapterView
         queue.add(request);
     }
 
-
+    /**
+     * Callback from Network data request
+     * @return JSON string
+     */
     private Response.Listener<String> responseNetworkDataSuccess() {
         return new Response.Listener<String>() {
             @Override
@@ -158,7 +162,10 @@ public class CategoriesActivity extends AppCompatActivity implements AdapterView
         };
     }
 
-
+    /**
+     * Dynamically adds view to the parent layout
+     * @param mData - List<T> data provided
+     */
     private void addRowView(final List<Category> mData){
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();

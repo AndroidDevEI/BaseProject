@@ -85,6 +85,10 @@ public class AdapterCategories extends ArrayAdapter<Category> {
         return convertView;
     }
 
+
+    /**
+     * Static ViewHolder class for better list view performance
+     */
     public static class ViewHolder{
 
         TextView mCategoryName;

@@ -20,7 +20,7 @@ import flatrocktechnology.com.databasenetworking.utils.Const;
 import flatrocktechnology.com.databasenetworking.utils.Utils;
 
 
-public class MainActivity extends AppCompatActivity implements  GCMRegisterDeviceAsyncTask.OnGCMDeviceRegistrationListener, View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements  GCMRegisterDeviceAsyncTask.OnGCMDeviceRegistrationListener{
 
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -29,15 +29,14 @@ public class MainActivity extends AppCompatActivity implements  GCMRegisterDevic
     private String deviceRegistrationId;
 
 
-    private Button mBtnNetworking;
-    private Button mBtnDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        registerViews();
+        initializeViews();
 
 //        if(checkPlayServices()){
 //            googleCloudMessaging = GoogleCloudMessaging.getInstance(this);
@@ -48,19 +47,19 @@ public class MainActivity extends AppCompatActivity implements  GCMRegisterDevic
 //        }
     }
 
-    private void registerViews() {
-        mBtnNetworking = (Button) findViewById(R.id.btn_networking);
-        mBtnDatabase = (Button)findViewById(R.id.btn_database);
-        setListeners();
+    /**
+     * Initialize  the layout views
+     */
+    private void initializeViews() {
+
     }
 
-
+    /**
+     * Sets all required listeners for the views
+     */
     private void setListeners(){
 
-        mBtnNetworking.setOnClickListener(this);
-        mBtnDatabase.setOnClickListener(this);
     }
-
 
     /**
      * Using headless fragment with asynchronous task for device registration process.
@@ -102,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements  GCMRegisterDevic
      * @param context - application context
      * @return - stored registration id or empty string if not present.
      */
-
     private String getRegistrationId(Context context){
 
         ApplicationPreferences applicationPreferences = new ApplicationPreferences(context);
@@ -128,48 +126,28 @@ public class MainActivity extends AppCompatActivity implements  GCMRegisterDevic
         return registrationId;
     }
 
-    // Asynchronous task callbacks
+    /**
+     * Async task callback.
+     */
     @Override
     public void onPreExecute() {
 
     }
-
+    /**
+     * Async task callback.
+     */
     @Override
     public void onPostExecute(String registrationId) {
         //send the registrationId ot the backend
     }
-
+    /**
+     * Async task callback.
+     */
     @Override
     public void onCancelled() {
 
     }
 
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
 
-
-        switch(id){
-            case R.id.btn_networking:
-                onNetworking();
-                break;
-            case R.id.btn_database:
-                onDatabase();
-                break;
-
-        }
-
-    }
-
-    private void onNetworking(){
-        Intent intent = new Intent(MyApplication.getAppContext(), CategoriesActivity.class);
-        startActivity(intent);
-    }
-
-
-    private void onDatabase(){
-        Intent intent = new Intent(MyApplication.getAppContext(), DatabaseActivity.class);
-        startActivity(intent);
-    }
 
 }

@@ -1,8 +1,5 @@
 package flatrocktechnology.com.databasenetworking.utils;
 
-/**
- * Created by Fuji on 24.6.2015 г..
- */
 public class Const {
 
     // The project number received from the Google developers account after creating new project.
