@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Baseproject by AndroidDevEI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Baseproject</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/AndroidDevEI/BaseProject" class="btn">View on GitHub</a>
+      <a href="https://github.com/AndroidDevEI/BaseProject/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/AndroidDevEI/BaseProject/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="base-database-and-networking-project" class="anchor" href="#base-database-and-networking-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Base Database and Networking project</h1>
+
+<h2>
+<a id="motivation" class="anchor" href="#motivation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Motivation</h2>
+
+<p>This project is created with the purpose of provide <strong>basic reusable</strong> structure for Android projects.</p>
+
+<h4>
+<a id="the-project-setup-contains" class="anchor" href="#the-project-setup-contains" aria-hidden="true"><span class="octicon octicon-link"></span></a>The project setup contains:</h4>
+
+<p>Database structure created with <strong>ORM Lite library.</strong> 
+Basic network setup for server client communication used 3rd party library <strong>Volley Networking library.</strong>
+Implement <strong>Google Cloud Messaging</strong> for receiving push notifications. </p>
+
+<h3>
+<a id="project-documentation-reference" class="anchor" href="#project-documentation-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project documentation reference</h3>
+
+<p><a href="http://androiddevei.github.io/android-documentation/apidoc">javadoc</a></p>
+
+<h2>
+<a id="code-examples" class="anchor" href="#code-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Examples</h2>
+
+<h4>
+<a id="simple-volley-request" class="anchor" href="#simple-volley-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Volley request</h4>
+
+<h5>
+<a id="request-item-from-web-service" class="anchor" href="#request-item-from-web-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request item from web service</h5>
+
+<pre><code>   private void requestNetworkData( ){
+        RequestQueue queue = VolleySingleton.getRequestQueue();
+
+        String url = Const.URL_API_REQUEST_CATEGORY_ITEM;
+
+        StringRequest request = new StringRequest(Request.Method.GET,url,
+                responseNetworkDataSuccess(),
+                responseError()){
+        };
+        queue.add(request);
+    }
+</code></pre>
+
+<h4>
+<a id="simple-database-request" class="anchor" href="#simple-database-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple database request</h4>
+
+<h5>
+<a id="create-the-category-item" class="anchor" href="#create-the-category-item" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create the category item</h5>
+
+<pre><code> public static CategoryItem createRecord(CategoryItem categoryItem){
+
+        if(categoryItem !=null) {
+            try {
+                DatabaseManager.getInstance().getCategoryItemsDaoInstance().create(categoryItem);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }else{
+            Log.d(TAG, "Creating null object");
+        }
+        return categoryItem;
+    }
+
+</code></pre>
+
+<h4>
+<a id="register-device-for-google-cloud-messaging" class="anchor" href="#register-device-for-google-cloud-messaging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Register device for Google Cloud Messaging</h4>
+
+<pre><code>    @Override
+    protected String doInBackground(Void... params) {
+           String msg = "";
+            try {
+                if (mGoogleCloudMessaging == null) {
+                    mGoogleCloudMessaging = GoogleCloudMessaging.getInstance(mActivity);
+                }
+
+                regId = mGoogleCloudMessaging.register(Const.PROJECT_NUMBER);
+                if(regId!=null){
+
+                    mMessage = "Device registered, registration ID=" + regId;
+                    Log.i("GCM", msg);
+
+                    // You should send the registration ID to your server over HTTP,
+                    // so it can use GCM/HTTP or CCS to send messages to your app.
+                    // The request to your server should be authenticated if your app
+                    // is using accounts.
+                    sendRegistrationIdToBackend();
+
+
+                    // Store the device registration ID in application preferences.
+                    // There is no need to register again. Unless the app version is changed
+                    // or the registration Id is lost.
+                    storeRegistrationId(mContext, regId);
+                }
+
+            } catch (IOException ex) {
+                mMessage  = "Error GCM exception :" + ex.getMessage();
+            }
+            return mMessage;
+</code></pre>
+
+<p>}</p>
+
+<h3>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h3>
+
+<h4>
+<a id="works-on" class="anchor" href="#works-on" aria-hidden="true"><span class="octicon octicon-link"></span></a>Works on</h4>
+
+<ul>
+<li>Supports devise with API 15 and above</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/AndroidDevEI/BaseProject">Baseproject</a> is maintained by <a href="https://github.com/AndroidDevEI">AndroidDevEI</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
