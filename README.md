@@ -8,6 +8,8 @@ Database structure created with **ORM Lite library.**
 Basic network setup for server client communication used 3rd party library **Volley Networking library.**
 Implement **Google Cloud Messaging** for receiving push notifications. 
 
+### Project documentation reference 
+[javadoc](http://androiddevei.github.io/android-documentation/apidoc)
 
 ## Code Examples
 
