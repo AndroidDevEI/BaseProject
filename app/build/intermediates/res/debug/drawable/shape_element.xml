@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/transparent"></solid>
+    <corners android:radius="5dp"></corners>
+    <stroke android:color="@color/white" android:width="2dp"/>
+</shape><!-- From: file:/D:/Developer/PROJECTS%20BACKUPS/MyApplication/DatabaseNetworking/app/src/main/res/drawable/shape_element.xml -->

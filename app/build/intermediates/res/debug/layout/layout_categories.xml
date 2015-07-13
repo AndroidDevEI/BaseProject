@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:weightSum="3">
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="0dp"  android:layout_weight="1">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id = "@+id/image_view_category"
+            style="@style/list_item_image"
+            android:background="@color/primary"
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+        <TextView
+            android:id="@+id/text_view_category_title"
+            style="@style/list_item_title"
+            android:layout_toRightOf= "@+id/image_view_category"
+            android:text= "Category title text"
+            />
+        <TextView
+            android:id="@+id/text_view_category_desc"
+            style="@style/list_item_description"
+            android:layout_toRightOf="@+id/image_view_category"
+            android:layout_alignBottom="@+id/image_view_category"
+            android:text= "Category description text"
+            />
+    </RelativeLayout>
+
+</LinearLayout><!-- From: file:/D:/Developer/PROJECTS%20BACKUPS/MyApplication/DatabaseNetworking/app/src/main/res/layout/layout_categories.xml -->
