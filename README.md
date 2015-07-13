@@ -9,7 +9,7 @@ Basic network setup for server client communication used 3rd party library **Vol
 Implement **Google Cloud Messaging** for receiving push notifications. 
 
 ### Project documentation reference 
-[javadoc](http://androiddevei.github.io/android-documentation/apidoc)
+[Project documentation](http://androiddevei.github.io/BaseProject/apidoc/)
 
 ## Code Examples
 
